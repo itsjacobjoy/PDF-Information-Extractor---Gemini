@@ -15,6 +15,7 @@ from dotenv import load_dotenv
 
 os.environ["GOOGLE_API_KEY"] = 'GOOGLE_API_KEY'
 
+#Converting pdf into text
 def get_pdf_text(pdf_docs):
   text=""
   for pdf in pdf_docs:
@@ -23,17 +24,19 @@ def get_pdf_text(pdf_docs):
       text+=page.extract_text()
   return text
 
+#Dividing text into chunks
 def get_text_chunks(text):
   text_splitter = RecursiveCharacterTextSplitter(chunk_size=10000, chunk_overlap=1000)
   chunks = text_splitter.split_text(text)
   return chunks
 
+#Converting chunks into vectors and storing them locally
 def get_vector_store(text_chunks):
   embeddings=GoogleGenerativeAIEmbeddings(model="models/embedding-001")
   vector_store=FAISS.from_texts(text_chunks, embedding=embeddings)
   vector_store.save_local("faiss_index")
 
-
+#Creating prompt template for llm
 def get_conversational_chain():
   prompt_template="""
   Answer the question as detailed as possible from the provided context, make sure to provide all the details, if the answer is not in
