@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 
 # load_dotenv()
 
-os.environ["GOOGLE_API_KEY"] = 'AIzaSyDaqcPsPW_3gV6oejEMJN-A8uDdzp9zTas'
+os.environ["GOOGLE_API_KEY"] = 'GOOGLE_API_KEY'
 
 def get_pdf_text(pdf_docs):
   text=""
