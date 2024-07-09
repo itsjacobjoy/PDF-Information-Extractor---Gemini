@@ -12,5 +12,5 @@ This Streamlit application allows users to upload multiple PDF files, extract re
 - Run the Streamlit app:
 `streamlit run app.py`
 - Upload one or more PDF files using the "Browse Files" button.
-- Click "Submit & Process" such to process pdf file
+- Click "Submit & Process" to process pdf file(s)
 - Enter a prompt to extract relevant information from the PDFs.
